@@ -54,9 +54,13 @@
     font-size: 0.9rem;
     opacity: 0.8;
   }
+  /* Responsive adjustments */
   @media (max-width: 768px) {
     .footer {
-        width: 103%;
-    
-      }
+      width: 103%; /* Avoid overflow */
+    }
+    .footer-container {
+      grid-template-columns: 1fr; /* Stack items vertically */
+      text-align: center;
+    }
   }
