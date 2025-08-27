@@ -1,7 +1,8 @@
 .footer {
     background-color: #031527; 
-        color: white;
+    color: white;
     padding: 2rem 1rem 1rem;
+
   }
   
   .footer-container {
@@ -53,4 +54,9 @@
     font-size: 0.9rem;
     opacity: 0.8;
   }
-  
+  @media (max-width: 768px) {
+    .footer {
+        width: 103%;
+    
+      }
+  }
