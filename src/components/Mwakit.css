@@ -1,0 +1,214 @@
+/* Section Background */
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  background: url(../assets/bg.jpg) center/cover no-repeat;
+}
+
+/* Timing Container */
+.timing-container {
+  width: fit-content;
+  padding: 15px;
+  border: 1px solid rgba(214, 214, 214, 0.56);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(5px);
+}
+
+.timing-container .top-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(214, 214, 214, 0.56);
+  text-align: center;
+}
+
+.timing-container .top-head h3 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  color: #fff;
+}
+
+.timing-container .top-head h4 {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ecd59f;
+}
+
+.timing-container .top-head select {
+  width: 200px;
+  margin-top: 10px;
+  padding: 2px 15px;
+  font-size: 20px;
+  color: #fff;
+  background-color: rgb(201, 60, 17);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.timing-container .top-head .date,
+.timing-container .top-head .clock {
+  width: 200px;
+  text-align: center;
+  color: #fff;
+}
+
+#clock {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #ecd59f;
+}
+
+/* Bottom Section */
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Hadith Card */
+.hadith-card {
+  position: relative; /* مهم علشان الـ q-mark يتحدد مكانها */
+  max-width: 700px;
+  padding: 24px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+}
+
+.quot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.q-mark {
+  position: absolute; /* ✅ */
+  font-size: 42px;
+  opacity: 0.2;
+  user-select: none;
+  pointer-events: none;
+}
+
+.q-mark.start {
+  top: 10px;
+  left: 15px;
+  transform: scaleX(-1);
+}
+
+.q-mark.end {
+  bottom: 10px;
+  right: 15px;
+}
+
+.hadith-text {
+  width: 100%;
+  font-size: 22px;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+  direction: rtl;
+  white-space: normal; 
+  overflow: hidden;
+  user-select: none;
+  padding: 10px 20px; 
+
+}
+
+.hadith-src {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: left;
+  user-select: none;
+  opacity: 0.8;
+}
+
+/* Loader */
+.loader {
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  color: #ffd369;
+  animation: blink 1s infinite;
+}
+
+/* Animations */
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-10px); opacity: 0.8; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timing-container {
+    width: 90%;
+    margin-right: 0;
+    padding: 15px;
+  }
+
+  .timing-container .top-head {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .timing-container .top-head select {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .timing-container .top-head h3 { font-size: 22px; }
+
+  .timing-container .top-head .date,
+  .timing-container .top-head .clock {
+    width: auto;
+    font-size: 18px;
+  }
+
+  #clock { font-size: 20px; letter-spacing: 2px; }
+
+  .bottom-section { gap: 20px; }
+
+  .hadith-card {
+    max-width: 100%;
+    padding: 18px 20px;
+  }
+
+  .hadith-text {
+    width: auto;
+    font-size: 18px;
+    white-space: normal;
+    border-left: none;
+    animation: none;
+  }
+
+  .hadith-src {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  section{
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .timing-container { width: 80%; margin-right: 0; }
+  .hadith-card { max-width: 90%; }
+}
