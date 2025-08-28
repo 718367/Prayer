@@ -1,0 +1,104 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+}
+
+body {
+  background-color: #f5f6fa;
+  color: #333;
+  direction: rtl; /* يجعل الموقع عربي RTL */
+}
+
+/* Main Container */
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: larger;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #1a237e, #283593);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #fbc02d;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background-color: #f9a825;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #1a237e;
+  border: 1px solid #ccc;
+}
+
+.btn-secondary:hover {
+  background-color: #f1f1f1;
+}
+
+/* Section Style */
+.section {
+  background: #fff;
+  margin: 20px auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  margin-bottom: 15px;
+  color: #1a237e;
+}
+
+.section blockquote {
+  font-style: italic;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.section .subtext {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+

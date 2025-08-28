@@ -12,6 +12,12 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
   }
+  .footer-container h3{
+    color: #f4d35e;
+  }
+  .footer-container h2{
+    color: #f4d35e;
+  }
   
   .footer-logo {
     display: flex;
@@ -54,6 +60,19 @@
     font-size: 0.9rem;
     opacity: 0.8;
   }
+  .footer-contact{
+    justify-self: center;
+    text-align: center;
+  }
+  .footer-logo{
+    justify-self: center;
+    text-align: center;
+  }
+  .footer-links{
+    justify-self: center;
+    text-align: center;
+  }
+  
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .footer {

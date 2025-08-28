@@ -1,0 +1,68 @@
+.about {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f0f8ff, #e6f0fa);
+    color: #031527;
+    font-family: "Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  
+  .about-container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  .about-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #0a3d62;
+    text-align: center;
+  }
+  
+  .about-title::after {
+    content: "";
+    width: 90px;
+    height: 4px;
+    background: #f4d35e;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  
+  .about-content .lead {
+    font-size: 1.1rem;
+  }
+  
+  .about-content p {
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+  
+  .highlight {
+    font-weight: 700;
+    color: #f39c12;
+  }
+  
+  .tech-section, .goals {
+    margin-top: 2rem;
+  }
+  
+  .tech-section h2, .goals h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #0a3d62;
+  }
+  
+  .tech-section ul, .goals ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .tech-section li, .goals li {
+    background: #fff;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    margin-bottom: 0.6rem;
+  }
+  
