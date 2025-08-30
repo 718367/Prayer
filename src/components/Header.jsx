@@ -9,7 +9,7 @@ function Header() {
           {/* Logo */}
           <div className="logo">
             <span>🕌</span>
-            <h1>مواقيت الصلاة والأذكار</h1>
+            <h1>Mwakit</h1>
           </div>
 
           {/* Navigation */}

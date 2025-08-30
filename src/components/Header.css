@@ -1,54 +1,87 @@
 .header {
-    background-color: #012342; 
-    color: white;
-    padding: 1rem 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    position: static;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .logo h1 {
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-  
-  .nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  .nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-  
-  .nav a:hover {
-    color: #f4d35e; /* لون مميز عند المرور */
-  }
+  background-color: #0d1117;
+  color: #f0f0f0; /* fixed bug */
+  padding: 1rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  position: sticky;
+}
 
-  @media (max-width: 768px) {
-    .header {
-        width: 103%;
-    
-      }
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  animation: fadeIn 1.5s ease;
+}
+
+.logo h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+}
+
+/* Navigation */
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #f0f0f0;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ffb400;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: #ffb400;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem;
   }
+  .nav ul {
+    gap: 1rem;
+  }
+  .logo h1 {
+    font-size: 1.1rem;
+  }
+}

@@ -44,8 +44,7 @@ function Footer() {
       {/* الحقوق */}
       <div className="footer-bottom">
         <p>
-          © {new Date().getFullYear()} جميع الحقوق محفوظة | مواقيت الصلاة
-          والأذكار
+          © {new Date().getFullYear()} جميع الحقوق محفوظة | Mwakit
         </p>
       </div>
     </footer>

@@ -1,85 +1,120 @@
 .footer {
-    background-color: #031527; 
-    color: white;
-    padding: 2rem 1rem 1rem;
+  background-color: #0d1117;
+  color: #f0f0f0;
+  padding: 2.5rem 1rem 1.2rem;
+  animation: fadeIn 1.2s ease-in-out;
+}
 
-  }
-  
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Section titles */
+.footer-container h3 {
+  color: #f4d35e;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer-container h2 {
+  font-size: 1.4rem;
+  color: #f4d35e;
+  margin-bottom: 0.5rem;
+}
+
+/* Logo + Description */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  justify-self: center;
+}
+
+/* Links */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #f0f0f0;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #f4d35e;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #f4d35e;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* Contact */
+.footer-contact {
+  text-align: center;
+  justify-self: center;
+}
+
+.footer-contact p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+}
+.footer-contact{
+  justify-self: center;
+  text-align: center;
+}
+.footer-logo{
+  justify-self: center;
+  text-align: center;
+}
+.footer-links{
+  justify-self: center;
+  text-align: center;
+}
+
+/* Bottom */
+.footer-bottom {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  padding-top: 0.8rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .footer-container {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  .footer-container h3{
-    color: #f4d35e;
-  }
-  .footer-container h2{
-    color: #f4d35e;
-  }
-  
-  .footer-logo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .footer-logo h2 {
-    margin: 0;
-  }
-  
-  .footer-links ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-links ul li {
-    margin-bottom: 0.5rem;
-  }
-  
-  .footer-links a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s;
-  }
-  
-  .footer-links a:hover {
-    color: #f4d35e;
-  }
-  
-  .footer-contact p {
-    margin: 0.3rem 0;
-  }
-  
-  .footer-bottom {
-    margin-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    text-align: center;
-    padding-top: 0.8rem;
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-  .footer-contact{
-    justify-self: center;
+    grid-template-columns: 1fr;
     text-align: center;
   }
-  .footer-logo{
-    justify-self: center;
-    text-align: center;
-  }
-  .footer-links{
-    justify-self: center;
-    text-align: center;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .footer {
-      width: 103%; /* Avoid overflow */
-    }
-    .footer-container {
-      grid-template-columns: 1fr; /* Stack items vertically */
-      text-align: center;
-    }
-  }
+}

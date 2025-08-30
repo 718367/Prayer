@@ -1,68 +1,78 @@
-.about {
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, #f0f8ff, #e6f0fa);
-    color: #031527;
-    font-family: "Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+/* Container with gradient background */
+.about-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2f3570, #202c47, #212222);
+  padding: 20px;
+}
+
+/* Card with glassmorphism effect */
+.about-card {
+  max-width: 700px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 1.2s ease-out forwards;
+}
+
+/* Headline */
+.about-card h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Paragraphs */
+.about-card p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* Highlights */
+.about-card .highlight {
+  font-weight: 600;
+  color: #fdd835; /* yellow */
+}
+
+.about-card .react {
+  color: #61dafb; /* React blue */
+  font-weight: 600;
+}
+
+.about-card .vite {
+  color: #42b883; /* Vite green */
+  font-weight: 600;
+}
+
+/* Waqf text */
+.about-card .waqf {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #4ade80; /* green */
+  font-style: italic;
+}
+
+/* Animation Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  
-  .about-container {
-    max-width: 960px;
-    margin: 0 auto;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .about-title {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    color: #0a3d62;
-    text-align: center;
-  }
-  
-  .about-title::after {
-    content: "";
-    width: 90px;
-    height: 4px;
-    background: #f4d35e;
-    display: block;
-    margin: 10px auto 0;
-    border-radius: 2px;
-  }
-  
-  .about-content .lead {
-    font-size: 1.1rem;
-  }
-  
-  .about-content p {
-    line-height: 1.9;
-    margin-bottom: 1rem;
-  }
-  
-  .highlight {
-    font-weight: 700;
-    color: #f39c12;
-  }
-  
-  .tech-section, .goals {
-    margin-top: 2rem;
-  }
-  
-  .tech-section h2, .goals h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-    color: #0a3d62;
-  }
-  
-  .tech-section ul, .goals ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .tech-section li, .goals li {
-    background: #fff;
-    padding: 0.8rem 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    margin-bottom: 0.6rem;
-  }
-  
+}
