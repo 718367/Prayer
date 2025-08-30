@@ -1,0 +1,114 @@
+.adhkar-page {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    direction: rtl;
+    color: #f0f0f0;
+    font-family: "Tajawal", sans-serif;
+    user-select: none;
+  }
+  
+  .adhkar-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #f4d35e;
+    letter-spacing: 1px;
+  }
+  
+  .adhkar-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .menu-btn {
+    background: #1c1f26;
+    color: #f0f0f0;
+    border: 1px solid #444;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-btn:hover {
+    background: #2a2f38;
+    transform: translateY(-2px);
+  }
+  
+  .menu-btn.active {
+    background: #f4d35e;
+    color: #1c1f26;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(244, 211, 94, 0.4);
+  }
+  
+  .adhkar-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .adhkar-card {
+    background: #5383c5;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .adhkar-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .zekr-text {
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.9;
+    margin-bottom: 1rem;
+    color: #e6e6e6;
+  }
+  
+  .counter-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .counter {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #f8c200;
+  }
+  
+  .counter.done {
+    color: #eecc0a;
+    text-decoration: line-through;
+  }
+  
+  .decrement-btn {
+    background: #f4d35e;
+    border: none;
+    color: #1c1f26;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .decrement-btn:hover:not(:disabled) {
+    background: #ffd95e;
+    transform: scale(1.1);
+  }
+  
+  .decrement-btn:disabled {
+    background: #555;
+    cursor: not-allowed;
+  }

@@ -15,7 +15,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/mwakit" element={<Mwakit />} />
-        <Route path="/adhkar" element={<Adhkar />} />
+        <Route path="/azkar" element={<Adhkar />} />
         <Route path="/about" element={<About />} />
       </Routes>
       

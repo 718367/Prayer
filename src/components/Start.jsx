@@ -5,12 +5,8 @@ function Start() {
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
-        <h1 className="brand">🌙 Mwakite</h1>
-        <h2> مرحباً بك في موقع الأذكار والقرآن </h2>
-        <p>
-          موقع خاص لعرض مواقيت الصلاة، الأذكار اليومية، والآيات القرآنية
-          مع دعم كامل للغة العربية.
-        </p>
+        <h1 className="brand">🌙 Mwakit</h1>
+       
         <div className="hero-buttons">
           <a href="/azkar" className="btn btn-primary">الأذكار</a>
           <a href="/about" className="btn btn-secondary">عن الموقع</a>
