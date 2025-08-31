@@ -53,12 +53,13 @@
   }
   
   .adhkar-card {
-    background: #5383c5;
+    background: #3263a7;
     border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 1.5rem;
     border-radius: 14px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+    text-align: center;
   }
   
   .adhkar-card:hover {

@@ -1,5 +1,5 @@
 import "./Start.css";
-
+import {  Link } from "react-router-dom";
 function Start() {
   return (
     <div className="home">
@@ -8,8 +8,8 @@ function Start() {
         <h1 className="brand">🌙 Mwakit</h1>
        
         <div className="hero-buttons">
-          <a href="/azkar" className="btn btn-primary">الأذكار</a>
-          <a href="/about" className="btn btn-secondary">عن الموقع</a>
+        <Link className="btn btn-primary" to="/azkar">الأذكار</Link>
+        <Link className="btn btn-secondary" to="/about">عن الموقع</Link>
         </div>
       </section>
 
@@ -20,9 +20,7 @@ function Start() {
           "أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له،
           له الملك وله الحمد وهو على كل شيء قدير."
         </blockquote>
-        <a href="/azkar" className="btn btn-secondary">
-          المزيد من الأذكار
-        </a>
+        <Link className="btn btn-secondary" to="/azkar">المزيد من الأذكار</Link>
       </section>
 
       {/* Quran Verse */}

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import "./Adhkar.css";
 
-// Import arrays (make sure you create them in separate files)
 import { azkar_morning } from "../data/azkar";
 import { azkar_night } from "../data/azkar";
 
@@ -14,20 +13,29 @@ function Adhkar() {
     night: { label: "أذكار المساء", data: azkar_night },
   };
 
-  // Keep counters state separately for each zekr
   const [counters, setCounters] = useState({});
+
+  const currentAzkar = categories[selectedCategory].data;
 
   const handleDecrement = (index) => {
     setCounters((prev) => {
-      const currentValue = prev[index] ?? currentAzkar[index].counter;
+      const categoryCounters = prev[selectedCategory] || {};
+      const currentValue =
+        categoryCounters[index] ?? currentAzkar[index].counter;
+
       if (currentValue > 0) {
-        return { ...prev, [index]: currentValue - 1 };
+        return {
+          ...prev,
+          [selectedCategory]: {
+            ...categoryCounters,
+            [index]: currentValue - 1,
+          },
+        };
       }
+
       return prev;
     });
   };
-
-  const currentAzkar = categories[selectedCategory].data;
 
   return (
     <div className="adhkar-page">
@@ -49,7 +57,9 @@ function Adhkar() {
       {/* Display Azkar */}
       <div className="adhkar-list">
         {currentAzkar.map((item, index) => {
-          const currentCount = counters[index] ?? item.counter;
+          const categoryCounters = counters[selectedCategory] || {};
+          const currentCount = categoryCounters[index] ?? item.counter;
+
           return (
             <div key={index} className="adhkar-card">
               <p className="zekr-text">{item.zekr}</p>
