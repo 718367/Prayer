@@ -62,17 +62,17 @@ function Adhkar() {
 
           return (
             <div key={index} className="adhkar-card">
-              <p className="zekr-text">{item.zekr}</p>
+              <div className="zekr-content">
+                <p className="zekr-text">{item.zekr}</p>
+              </div>
+
               <div className="counter-box">
-                <span className={`counter ${currentCount === 0 ? "done" : ""}`}>
-                  🔁 {currentCount} مرة
-                </span>
                 <button
                   className="decrement-btn"
                   onClick={() => handleDecrement(index)}
                   disabled={currentCount === 0}
                 >
-                  -
+                  {currentCount}
                 </button>
               </div>
             </div>

@@ -1,6 +1,6 @@
 .adhkar-page {
     padding: 2rem;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
     direction: rtl;
     color: #f0f0f0;
@@ -8,56 +8,88 @@
     user-select: none;
   }
   
+  /* ===== Title ===== */
   .adhkar-title {
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
+    font-size: 2.7rem;
+    margin-bottom: 1rem;
     color: #f4d35e;
+    font-weight: 800;
     letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    position: relative;
   }
   
+  .adhkar-title::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 3px;
+    margin: 0.8rem auto 2rem;
+    background: linear-gradient(90deg, #f4d35e, #f1c40f);
+    border-radius: 6px;
+  }
+  
+  /* ===== Menu Tabs ===== */
   .adhkar-menu {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    background: #1c1f26;
+    padding: 0.6rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .menu-btn {
-    background: #1c1f26;
-    color: #f0f0f0;
-    border: 1px solid #444;
-    padding: 0.7rem 1.5rem;
-    border-radius: 10px;
-    font-size: 1rem;
+    background: transparent;
+    color: #ccc;
+    border: none;
+    padding: 0.7rem 1.6rem;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
   }
   
   .menu-btn:hover {
-    background: #2a2f38;
-    transform: translateY(-2px);
+    color: #fff;
+    background: rgba(255,255,255,0.08);
   }
   
   .menu-btn.active {
-    background: #f4d35e;
+    background: linear-gradient(135deg, #f4d35e, #f1c40f);
     color: #1c1f26;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(244, 211, 94, 0.4);
+    box-shadow: 0 4px 12px rgba(244, 211, 94, 0.4);
   }
   
+  
+  /* ===== List ===== */
   .adhkar-list {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
   }
   
+  /* ===== Card ===== */
   .adhkar-card {
-    background: #3263a7;
+    background: #264b82;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 1.5rem;
-    border-radius: 14px;
+    padding: 1.4rem 1.8rem;
+    border-radius: 16px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     transition: transform 0.3s ease;
     text-align: center;
   }
@@ -66,50 +98,72 @@
     transform: translateY(-4px);
   }
   
-  .zekr-text {
-    font-size: 1.6rem;
-    font-weight: bold;
-    line-height: 1.9;
-    margin-bottom: 1rem;
-    color: #e6e6e6;
+  .zekr-content {
+    flex: 1;
+    margin-left: 1.5rem;
   }
   
-  .counter-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .zekr-text {
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 2;
+    color: #f9f9f9;
   }
+  
+
+  
   
   .counter {
     font-size: 1.3rem;
-    font-weight: bold;
-    color: #f8c200;
+    font-weight: 700;
+    color: #f4d35e;
+    letter-spacing: 1px;
   }
   
   .counter.done {
-    color: #eecc0a;
+    color: #aaa;
     text-decoration: line-through;
-  }
-  
-  .decrement-btn {
-    background: #f4d35e;
-    border: none;
-    color: #1c1f26;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+    font-style: italic;
     transition: all 0.3s ease;
   }
   
+  .decrement-btn {
+    width: 120px;
+    font-size: 1.9rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #f4d35e, #f1c40f);
+    border: none;
+    color: #1c1f26;
+    border-radius: 10px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  /* Focus alert state */
+.decrement-btn:focus {
+  background: linear-gradient(135deg, #ff4d4d, #ff1a1a);
+  color: #fff;
+  outline: none;
+  box-shadow: 0 0 14px rgba(255, 77, 77, 0.9);
+  transform: scale(1.05);
+}
+  
   .decrement-btn:hover:not(:disabled) {
-    background: #ffd95e;
-    transform: scale(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0,0,0,0.25);
   }
   
   .decrement-btn:disabled {
     background: #555;
+    color: #ccc;
     cursor: not-allowed;
+    box-shadow: none;
   }
+
+  @media (max-width: 768px) {
+    .adhkar-card{
+        flex-direction: column;
+    }
+  }
+  
