@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import "./Adhkar.css";
 
-import { azkar_morning } from "../data/azkar";
-import { azkar_night } from "../data/azkar";
+import { azkar_morning } from "../../data/azkar";
+import { azkar_night } from "../../data/azkar";
 
 function Adhkar() {
   const [selectedCategory, setSelectedCategory] = useState("morning");

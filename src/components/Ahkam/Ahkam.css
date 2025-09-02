@@ -1,0 +1,210 @@
+/* ===== Menu Tabs ===== */
+  .ahkam-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2.5rem;
+    flex-wrap: wrap;
+    background: #1c1f26;
+    padding: 0.6rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ahkam-btn {
+    background: transparent;
+    color: #ccc;
+    border: none;
+    padding: 0.7rem 1.6rem;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .ahkam-btn:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+  }
+  
+  .ahkam-btn.active {
+    background: linear-gradient(135deg, #f4d35e, #f1c40f);
+    color: #1c1f26;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(244, 211, 94, 0.4);
+  }
+  .block-title {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .block-title:hover {
+    color: #ffd95e;
+  }
+  
+  .guide-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+  }
+  .arrow{
+    color: white;
+  }
+  .guide-block.open .guide-list {
+    max-height: 600px; /* رقم كبير يكفي لعرض العناصر */
+    padding: 0.5rem 0;
+  }
+/* Prayer Guide */
+.prayer-guide {
+  width: 90%;
+  margin: 40px auto;
+  padding: 2rem;
+  font-family: "Tajawal", sans-serif;
+  color: #f9f9f9;
+  background: linear-gradient(180deg, #1c2541, #3a506b);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.7rem;
+  margin-bottom: 0.8rem;
+  font-weight: 1000;
+  background: linear-gradient(135deg, #ffd95e, #ff9800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-intro {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #ddd;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.guide-block {
+  background: #243b55;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.guide-block:hover { transform: translateY(-4px); }
+
+.block-title {
+  font-size: 1.7rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: #ffbb00;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guide-list {
+  padding-left: 1.2rem;
+  margin: 0;
+  list-style: none;
+}
+
+.guide-list li {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  padding: 0.4rem 0.8rem;
+  border-left: 4px solid #ffd95e;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.guide-list li:hover { background: rgba(240, 195, 46, 0.47); }
+
+/* Highlight Types */
+.highlight-rukn   { font-weight: bold; color: #ffca28; }
+.highlight-wajib  { font-weight: bold; color: #ff7043; }
+.highlight-sunan  { font-weight: bold; color: #66bb6a; }
+.highlight-makruh { font-weight: bold; color: #42a5f5; }
+
+
+.ahkam-feasting {
+  direction: rtl;
+  text-align: right;
+  line-height: 2;
+  padding: 2rem;
+  background: linear-gradient(145deg, #0d1b2a, #1b263b);
+  color: #f1f1f1;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  max-width: 900px;
+  margin: 2rem auto;
+  font-size: 1.1rem;
+}
+
+.ahkam-feasting .title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(255, 204, 0, 0.4);
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+.ahkam-feasting h3 {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffd700;
+  border-right: 4px solid #ffd700;
+  padding-right: 0.6rem;
+}
+
+.ahkam-feasting p {
+  margin: 0.8rem 0;
+}
+
+.ahkam-feasting .quran {
+  display: block;
+  margin: 0.7rem 0;
+  padding: 0.8rem 1rem;
+  background: rgba(127, 255, 212, 0.08);
+  border-right: 4px solid #7fffd4;
+  border-radius: 10px;
+  font-style: italic;
+  font-weight: 500;
+  color: #7fffd4;
+}
+
+.ahkam-feasting ol,
+.ahkam-feasting ul {
+  padding-right: 1.2rem;
+  margin-top: 0.8rem;
+}
+
+.ahkam-feasting li {
+  margin-bottom: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.ahkam-feasting li:hover {
+  background: rgba(255, 255, 255, 0.08);
+}

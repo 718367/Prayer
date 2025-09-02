@@ -28,6 +28,9 @@ function Footer() {
               <Link to="/azkar">الأذكار</Link>
             </li>
             <li>
+              <Link to="/ahkam">أحكام</Link>
+            </li>
+            <li>
               <Link to="/about">عنا</Link>
             </li>
           </ul>
@@ -43,9 +46,7 @@ function Footer() {
 
       {/* الحقوق */}
       <div className="footer-bottom">
-        <p>
-          © {new Date().getFullYear()} جميع الحقوق محفوظة | Mwakit
-        </p>
+        <p>© {new Date().getFullYear()} جميع الحقوق محفوظة | Mwakit</p>
       </div>
     </footer>
   );

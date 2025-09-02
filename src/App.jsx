@@ -1,9 +1,10 @@
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import Mwakit from "./components/Mawakit.jsx";
-import Start from "./components/Start.jsx";
-import Adhkar from "./components/Adhkar.jsx";
-import About from "./components/About.jsx";
+import Header from "./components/Header/Header.jsx";
+import Footer from "./components/Footer/Footer.jsx";
+import Mwakit from "./components/Mwakit/Mawakit";
+import Start from "./components/Start/Start.jsx";
+import Adhkar from "./components/Adhkar/Adhkar.jsx";
+import About from "./components/About/About.jsx";
+import Ahkam from "./components/Ahkam/Ahkam.jsx";
 import { Route,Routes } from "react-router-dom";
 
 import "./App.css";
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Start />} />
         <Route path="/mwakit" element={<Mwakit />} />
         <Route path="/azkar" element={<Adhkar />} />
+        <Route path="/ahkam" element={<Ahkam />} />
         <Route path="/about" element={<About />} />
       </Routes>
       

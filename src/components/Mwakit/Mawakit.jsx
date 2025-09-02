@@ -1,7 +1,7 @@
 import Prayer from "./Prayer";
 import Clock from "./Clock";
-import { cities } from "../data/cities";
-import { formatTo12Hour } from "../Utils";
+import { cities } from "../../data/cities";
+import { formatTo12Hour } from "../../Utils";
 import { useState, useEffect } from "react";
 import "./Mwakit.css";
 

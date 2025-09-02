@@ -26,6 +26,9 @@ function Header() {
                 <Link to="/azkar">الأذكار</Link>
               </li>
               <li>
+                <Link to="/ahkam">أحكام</Link>
+              </li>
+              <li>
                 <Link to="/about">عنا</Link>
               </li>
             </ul>
