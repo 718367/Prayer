@@ -1,9 +1,14 @@
 // Adhkar.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Adhkar.css";
 
 import { azkar_morning } from "../../data/azkar";
 import { azkar_night } from "../../data/azkar";
+import { azkar_after_salah } from "../../data/azkar";
+import { azkar_sleep } from "../../data/azkar";
+import { azkar_waking_up } from "../../data/azkar";
+import { rukia_sharia } from "../../data/azkar";
+import { quran_khatm_duaa } from "../../data/azkar";
 
 function Adhkar() {
   const [selectedCategory, setSelectedCategory] = useState("morning");
@@ -11,6 +16,11 @@ function Adhkar() {
   const categories = {
     morning: { label: "أذكار الصباح", data: azkar_morning },
     night: { label: "أذكار المساء", data: azkar_night },
+    salah: { label: "أذكار ما بعد الصلاة", data: azkar_after_salah },
+    azkar_sleep: { label: "أذكار النوم", data: azkar_sleep },
+    waking_up: { label: "أذكار الاستيقاظ", data: azkar_waking_up },
+    rukia: { label: "الرقية الشرعية", data: rukia_sharia },
+    quran_duaa: { label: "دعاء ختم القرآن", data: quran_khatm_duaa },
   };
 
   const [counters, setCounters] = useState({});
@@ -18,22 +28,38 @@ function Adhkar() {
   const currentAzkar = categories[selectedCategory].data;
 
   const handleDecrement = (index) => {
+    console.log(" Decrement triggered for index:", index);
+
     setCounters((prev) => {
+      console.log(" Previous state:", prev);
+
       const categoryCounters = prev[selectedCategory] || {};
+      console.log(
+        " Category Counters for",
+        selectedCategory,
+        ":",
+        categoryCounters
+      );
+
       const currentValue =
         categoryCounters[index] ?? currentAzkar[index].counter;
+      console.log(" Current value for index", index, ":", currentValue);
 
       if (currentValue > 0) {
-        return {
+        const newState = {
           ...prev,
           [selectedCategory]: {
             ...categoryCounters,
             [index]: currentValue - 1,
           },
         };
-      }
 
-      return prev;
+        console.log(" New state after decrement:", newState);
+        return newState;
+      } else {
+        console.log(" Value already 0, no decrement performed");
+        return prev;
+      }
     });
   };
 
@@ -64,6 +90,11 @@ function Adhkar() {
             <div key={index} className="adhkar-card">
               <div className="zekr-content">
                 <p className="zekr-text">{item.zekr}</p>
+
+                {/* ✅ Show justification if exists */}
+                {item.justification && (
+                  <p className="zekr-justification">📖 {item.justification}</p>
+                )}
               </div>
 
               <div className="counter-box">

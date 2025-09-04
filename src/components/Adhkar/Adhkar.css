@@ -45,6 +45,24 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .zekr-justification {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.12); /* خلفية شفافة ناعمة */
+    border-left: 4px solid #f4d35e;        /* لون ذهبي يدي contrast */
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #f9f9f9;                        /* نص فاتح عشان يبان على الخلفية الغامقة */
+    line-height: 1.6;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2); /* عمق خفيف */
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  
+  .zekr-justification:hover {
+    transform: translateX(4px); /* حركة بسيطة عند المرور */
+    background: rgba(255, 255, 255, 0.18);
+  }
   
   .menu-btn {
     background: transparent;
@@ -101,6 +119,7 @@
   .zekr-content {
     flex: 1;
     margin-left: 1.5rem;
+    margin-bottom: 20px;
   }
   
   .zekr-text {

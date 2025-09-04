@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Ahkam_Prayer from "./Ahkam_Prayer";
 import Ahkam_Feasting from "./Ahkam_Feasting";
+import Ahkam_HajjUmrah from "./Ahkam_HajjUmrah";
 
 import "./Ahkam.css";
 
@@ -20,6 +21,7 @@ function Ahkam() {
       case "feasting":
         return <Ahkam_Feasting />;
       case "hagg":
+        return <Ahkam_HajjUmrah />;
       default:
         return <p>اختر قسماً من القائمة أعلاه.</p>;
     }
