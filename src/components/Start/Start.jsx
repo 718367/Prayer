@@ -4,19 +4,20 @@ function Start() {
   return (
     <div className="home">
       {/* Hero Section */}
-      <section className="hero">
-        <h1 className="brand">🌙 Mwakit</h1>
-
-        <div className="hero-buttons">
-          <Link className="btn btn-primary" to="/azkar">
-            الأذكار
-          </Link>
-          <Link className="btn btn-secondary" to="/about">
-            عن الموقع
-          </Link>
+      <div className="hero">
+        <div className="hero-overlay"></div>
+        <div className="hero-container">
+          <h1 className="brand">🌙 Mwakit</h1>
+          <div className="hero-buttons">
+            <Link className="btn btn-primary" to="/azkar">
+              الأذكار
+            </Link>
+            <Link className="btn btn-secondary" to="/about">
+              عن الموقع
+            </Link>
+          </div>
         </div>
-      </section>
-     
+      </div>
 
       {/* Azkar Section */}
       <section className="section azkar fade-in">
@@ -27,10 +28,12 @@ function Start() {
           ذكر اليوم
         </h2>
         <blockquote className="azkar-quote">
-          « ، لا إله إلا الله وحده لا شريك له
-          له الملك وله الحمد وهو على كل شيء قدير »
+          « ، لا إله إلا الله وحده لا شريك له له الملك وله الحمد وهو على كل شيء
+          قدير »
         </blockquote>
-        <Link className="azkar-btn" to="/azkar">اذكار</Link>
+        <Link className="azkar-btn" to="/azkar">
+          اذكار
+        </Link>
       </section>
 
       {/* Quran Verse */}

@@ -9,7 +9,9 @@ import { azkar_sleep } from "../../data/azkar";
 import { azkar_waking_up } from "../../data/azkar";
 import { rukia_sharia } from "../../data/azkar";
 import { quran_khatm_duaa } from "../../data/azkar";
-
+import { nabawi_dua } from "../../data/azkar";
+import { prophets_duaa } from "../../data/azkar";
+import { joame3_aldoaa } from "../../data/azkar";
 function Adhkar() {
   const [selectedCategory, setSelectedCategory] = useState("morning");
 
@@ -21,6 +23,9 @@ function Adhkar() {
     waking_up: { label: "أذكار الاستيقاظ", data: azkar_waking_up },
     rukia: { label: "الرقية الشرعية", data: rukia_sharia },
     quran_duaa: { label: "دعاء ختم القرآن", data: quran_khatm_duaa },
+    nabawi_duaa: { label: "أدعية النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ", data: nabawi_dua },
+    prophets_duaa: { label: "أدعية الأنبياء من القرآن الكريم", data: prophets_duaa },
+    joame3_aldoaa: { label: "جوامع الدعاء", data: joame3_aldoaa },
   };
 
   const [counters, setCounters] = useState({});

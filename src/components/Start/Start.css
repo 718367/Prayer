@@ -21,76 +21,48 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* Branding */
-.brand {
-  font-size: 4rem;
-  font-weight: 900;
-  background: linear-gradient(270deg, #fbc02d, #ff9800, #ffeb3b, #fbc02d);
-  background-size: 600% 600%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: flow 6s ease infinite;
-  margin-bottom: 15px;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Flow animation */
-@keyframes flow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Hero Section */
 .hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(160deg, #264b82 0%, #1a237e 50%, #0d1333 100%);
-  color: #f9f9f9;
+  justify-content: center;
   text-align: center;
-  padding: 100px 20px;
-  border-radius: 0 0 40px 40px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  position: relative;
-  overflow: hidden;
+  color: #fff;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(../../assets/quds.png);
+  border-radius: 0px 0px 35px 35px ;
 }
 
-/* Decorative background glow */
-.hero::before,
-.hero::after {
-  content: "";
+
+
+/* Dark overlay for readability */
+.hero-overlay {
   position: absolute;
-  border-radius: 50%;
-  z-index: 0;
-}
-
-.hero::before {
-  top: -80px;
-  left: -80px;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, rgba(255, 223, 0, 0.4), transparent 70%);
-}
-
-.hero::after {
-  bottom: -80px;
-  right: -80px;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(0, 123, 255, 0.4), transparent 70%);
-}
-
-.hero-subtitle {
-  font-size: 1.4rem;
-  margin-bottom: 30px;
-  color: #ddd;
-  max-width: 600px;
-  line-height: 1.6;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.801), rgba(0, 0, 0, 0.473));
   z-index: 1;
+  border-radius: 0px 0px 35px 35px ;
+}
+
+.hero-container{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Content */
+.brand,
+.hero-subtitle,
+.hero-buttons {
+  position: relative;
+  z-index: 3; /* ensures content is above overlay + glows */
 }
 
 .hero-buttons {
@@ -135,8 +107,6 @@ body {
   box-shadow: 0 6px 18px rgba(255, 255, 255, 0.25);
 }
 
-
-
 /* Section Style */
 .section {
   background: #ffffff;
@@ -151,7 +121,9 @@ body {
   gap: 30px;
 }
 
-.section:hover { transform: translateY(-5px); }
+.section:hover {
+  transform: translateY(-5px);
+}
 
 .section h2 {
   margin-bottom: 15px;
@@ -166,12 +138,14 @@ body {
   line-height: 1.8;
 }
 
-
-
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .fade-in {
@@ -180,8 +154,14 @@ body {
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Azkar Button */
@@ -196,7 +176,9 @@ body {
   transition: all 0.3s ease;
 }
 
-.azkar-btn:hover { background-color: #357abd; }
+.azkar-btn:hover {
+  background-color: #357abd;
+}
 
 .azkar-btn:focus {
   outline: none;
@@ -226,7 +208,7 @@ body {
   background: #fff8e1;
   border-radius: 14px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   line-height: 1.8;
 }
 
@@ -239,7 +221,7 @@ body {
   background: #e8f5e9;
   padding: 20px;
   border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .verse-source {
@@ -252,6 +234,13 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .section-title { font-size: 2rem; }
-  .guide-block { padding: 1rem; }
+  .section-title {
+    font-size: 2rem;
+  }
+  .guide-block {
+    padding: 1rem;
+  }
+  .hero{
+    height: 87vh;
+  }
 }

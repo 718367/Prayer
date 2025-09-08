@@ -12,7 +12,7 @@ function Ahkam() {
     hagg: "أحكام الحج",
   };
 
-  const [activeCategory, setActiveCategory] = useState("prayer");
+  const [activeCategory, setActiveCategory] = useState("");
 
   const renderContent = () => {
     switch (activeCategory) {
@@ -23,7 +23,12 @@ function Ahkam() {
       case "hagg":
         return <Ahkam_HajjUmrah />;
       default:
-        return <p>اختر قسماً من القائمة أعلاه.</p>;
+        return (
+          <div className="default">
+          ✨ من فضلك اختر قسماً من القائمة أعلاه لعرض الأحكام.
+        </div>
+
+        )
     }
   };
 
@@ -40,7 +45,7 @@ function Ahkam() {
           </button>
         ))}
       </div>
-      <div className="ahkam-content">{renderContent()}</div>
+      <div className="ahkam-content" >{renderContent()}</div>
     </>
   );
 }
