@@ -1,10 +1,34 @@
 import "./About.css";
+import Logo from "../../assets/Logo.png";
 
 function About() {
   return (
     <div className="about-container">
       <div className="about-card">
         <h1>عن هذا الموقع</h1>
+        {/* Logo */}
+        <div
+          className="logo"
+          style={{
+            width: "150px",
+            height: "150px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "auto",
+          }}
+        >
+          <img
+            src={Logo}
+            alt="Mwakit logo"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              borderRadius: "50%",
+            }}
+          />
+        </div>
         <p>
           هذا الموقع تم إنشاؤه بكل ❤️ على يد{" "}
           <span className="highlight">يوسف محمد</span>، مهندس برمجيات Full Stack
@@ -32,10 +56,9 @@ function About() {
             النبي ﷺ{" "}
           </li>
           <li>
-              <strong>📖 أحكام:</strong>أهم الأحكام في الإسلام
-            </li>
+            <strong>📖 أحكام:</strong>أهم الأحكام في الإسلام
+          </li>
           <li>
-           
             <strong>ℹ️ عن الموقع:</strong> هذه الصفحة (التي تقرأها الآن) توضح
             فكرة ورسالة الموقع.
           </li>
