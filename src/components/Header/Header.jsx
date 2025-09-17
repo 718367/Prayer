@@ -10,12 +10,11 @@ function Header() {
         <div
           className="logo"
           style={{
-            width: "90px",
-            height: "90px",
+            width: "50px",
+            height: "50px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
           }}
         >
           <img
