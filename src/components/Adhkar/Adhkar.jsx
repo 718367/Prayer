@@ -23,8 +23,14 @@ function Adhkar() {
     waking_up: { label: "أذكار الاستيقاظ", data: azkar_waking_up },
     rukia: { label: "الرقية الشرعية", data: rukia_sharia },
     quran_duaa: { label: "دعاء ختم القرآن", data: quran_khatm_duaa },
-    nabawi_duaa: { label: "أدعية النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ", data: nabawi_dua },
-    prophets_duaa: { label: "أدعية الأنبياء من القرآن الكريم", data: prophets_duaa },
+    nabawi_duaa: {
+      label: "أدعية النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ",
+      data: nabawi_dua,
+    },
+    prophets_duaa: {
+      label: "أدعية الأنبياء من القرآن الكريم",
+      data: prophets_duaa,
+    },
     joame3_aldoaa: { label: "جوامع الدعاء", data: joame3_aldoaa },
   };
 
@@ -33,22 +39,11 @@ function Adhkar() {
   const currentAzkar = categories[selectedCategory].data;
 
   const handleDecrement = (index) => {
-    console.log(" Decrement triggered for index:", index);
-
     setCounters((prev) => {
-      console.log(" Previous state:", prev);
-
       const categoryCounters = prev[selectedCategory] || {};
-      console.log(
-        " Category Counters for",
-        selectedCategory,
-        ":",
-        categoryCounters
-      );
 
       const currentValue =
         categoryCounters[index] ?? currentAzkar[index].counter;
-      console.log(" Current value for index", index, ":", currentValue);
 
       if (currentValue > 0) {
         const newState = {
@@ -59,10 +54,8 @@ function Adhkar() {
           },
         };
 
-        console.log(" New state after decrement:", newState);
         return newState;
       } else {
-        console.log(" Value already 0, no decrement performed");
         return prev;
       }
     });

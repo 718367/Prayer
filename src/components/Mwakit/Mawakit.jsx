@@ -5,12 +5,21 @@ import { formatTo12Hour } from "../../Utils";
 import { useState, useEffect } from "react";
 import "./Mwakit.css";
 
+// Background images per prayer time
+import FajrImg from "../../assets/Fajr.png";
+import DhuhrImg from "../../assets/Dhuhr.png";
+import AsrImg from "../../assets/Asr.png";
+import MaghribImg from "../../assets/Maghrib.png";
+import IshaImg from "../../assets/Isha.png";
+import ShurooqImg from "../../assets/Shurooq .png";
+
 function Mawakit() {
   const [city, setCity] = useState("Cairo");
   const [timings, setTimings] = useState({});
   const [loading, setLoading] = useState(true);
   const [nextPrayer, setNextPrayer] = useState("");
   const [remainingTime, setRemainingTime] = useState("");
+  const [currentPrayer, setCurrentPrayer] = useState("");
 
   const dateObj = new Date();
   const date =
@@ -47,7 +56,8 @@ function Mawakit() {
     if (!timings) return;
 
     const now = new Date();
-    const prayersOrder = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+    // ملاحظة: مفتاح الشروق في الـ API هو "Sunrise"
+    const prayersOrder = ["Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha"];
 
     for (let prayer of prayersOrder) {
       if (!timings[prayer]) continue;
@@ -66,7 +76,6 @@ function Mawakit() {
       }
     }
 
-    // لو مفيش باقي اليوم → يبقى الصلاة القادمة فجر تاني يوم
     const [h, m] = timings["Fajr"].split(":").map(Number);
     const tomorrowFajr = new Date(
       now.getFullYear(),
@@ -76,6 +85,31 @@ function Mawakit() {
       m
     );
     return { name: "Fajr", time: tomorrowFajr };
+  }
+
+  // دالة لتحديد الصلاة الحالية (التي دخل وقتها بالفعل)
+  function getCurrentPrayer(timings) {
+    if (!timings) return "";
+
+    const now = new Date();
+    const order = ["Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha"];
+
+    let lastPrayer = "Fajr";
+    for (let prayer of order) {
+      if (!timings[prayer]) continue;
+      const [h, m] = timings[prayer].split(":").map(Number);
+      const t = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate(),
+        h,
+        m
+      );
+      if (t <= now) {
+        lastPrayer = prayer;
+      }
+    }
+    return lastPrayer;
   }
 
   // تحديث العد التنازلي كل ثانية
@@ -98,6 +132,10 @@ function Mawakit() {
           .toString()
           .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
       );
+
+      // حدد الصلاة الحالية لتغيير الخلفية
+      const curr = getCurrentPrayer(timings);
+      setCurrentPrayer(curr);
     };
 
     updateCountdown(); // أول مرة
@@ -113,15 +151,34 @@ function Mawakit() {
   // أسماء عربية للصلاة
   const prayerNames = {
     Fajr: "الفجر",
+    Sunrise: "الشروق",
     Dhuhr: "الظهر",
     Asr: "العصر",
     Maghrib: "المغرب",
     Isha: "العشاء",
   };
 
+  // خلفيات لكل صلاة
+  const prayerBackgrounds = {
+    Fajr: FajrImg,
+    Sunrise: ShurooqImg,
+    Dhuhr: DhuhrImg,
+    Asr: AsrImg,
+    Maghrib: MaghribImg,
+    Isha: IshaImg,
+  };
+
+  const currentBg = prayerBackgrounds[currentPrayer];
+
   return (
     <>
-      <section>
+      <section
+        style={
+          currentBg
+            ? { background: `url(${currentBg}) center/cover no-repeat` }
+            : undefined
+        }
+      >
         <div className="right">
           {/* ✅ عرض الصلاة القادمة والوقت المتبقي */}
           <div className="next-prayer-box">
