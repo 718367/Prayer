@@ -16,6 +16,7 @@ function About() {
             alignItems: "center",
             justifyContent: "center",
             margin: "auto",
+            marginBottom: "20px",
           }}
         >
           <img

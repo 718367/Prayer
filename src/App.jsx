@@ -1,5 +1,6 @@
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import VisitorCounter from "./components/VisitorCounter/VisitorCounter.jsx";
 import Mwakit from "./components/Mwakit/Mawakit";
 import Start from "./components/Start/Start.jsx";
 import Adhkar from "./components/Adhkar/Adhkar.jsx";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/about" element={<About />} />
       </Routes>
 
+      <VisitorCounter />
       <Footer />
     </>
   );

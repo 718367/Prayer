@@ -20,6 +20,7 @@ function Mawakit() {
   const [nextPrayer, setNextPrayer] = useState("");
   const [remainingTime, setRemainingTime] = useState("");
   const [currentPrayer, setCurrentPrayer] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const dateObj = new Date();
   const date =
@@ -31,24 +32,72 @@ function Mawakit() {
 
   async function fetchData(selectedCity) {
     setLoading(true);
-    try {
-      const response = await fetch(
-        `https://api.aladhan.com/v1/timingsByCity/${date}?city=${selectedCity}&country=EG&method=5`
-      );
-      const data = await response.json();
+    setErrorMsg("");
 
-      const formattedTimings = {};
-      for (let key in data.data.timings) {
-        formattedTimings[key] = data.data.timings[key]; // خليها 24h عشان الحساب
+    const cacheKey = `timings_${selectedCity}_${date}`;
+
+    // Helper: fetch with timeout
+    const fetchWithTimeout = async (resource, options = {}) => {
+      const { timeout = 8000 } = options;
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), timeout);
+      try {
+        const res = await fetch(resource, {
+          ...options,
+          signal: controller.signal,
+        });
+        clearTimeout(id);
+        return res;
+      } catch (e) {
+        clearTimeout(id);
+        throw e;
       }
+    };
 
-      setTimings(formattedTimings);
-      console.log(formattedTimings);
-    } catch (error) {
-      console.error("Error fetching prayer times:", error);
-    } finally {
-      setLoading(false);
+    // Retry logic
+    const url = `https://api.aladhan.com/v1/timingsByCity/${date}?city=${selectedCity}&country=EG&method=5`;
+    let lastErr;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const response = await fetchWithTimeout(url, { timeout: 8000 });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+
+        const formattedTimings = {};
+        for (let key in data.data.timings) {
+          formattedTimings[key] = data.data.timings[key];
+        }
+
+        setTimings(formattedTimings);
+        // cache
+        try {
+          localStorage.setItem(cacheKey, JSON.stringify(formattedTimings));
+        } catch {}
+        setLoading(false);
+        return;
+      } catch (err) {
+        lastErr = err;
+        await new Promise((r) => setTimeout(r, attempt * 800));
+      }
     }
+
+    // Fallback to cache
+    try {
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        setTimings(parsed);
+        setErrorMsg("تعذر الاتصال بالخادم. يتم عرض مواعيد مخزنة مؤقتاً.");
+        setLoading(false);
+        return;
+      }
+    } catch {}
+
+    console.error("Error fetching prayer times:", lastErr);
+    setErrorMsg(
+      "تعذر جلب مواقيت الصلاة حالياً. تحقق من الاتصال ثم أعد المحاولة."
+    );
+    setLoading(false);
   }
 
   // دالة لحساب الصلاة القادمة
@@ -56,7 +105,7 @@ function Mawakit() {
     if (!timings) return;
 
     const now = new Date();
-    // ملاحظة: مفتاح الشروق في الـ API هو "Sunrise"
+
     const prayersOrder = ["Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha"];
 
     for (let prayer of prayersOrder) {
@@ -245,6 +294,18 @@ function Mawakit() {
                 <Prayer name="المغرب" time={formatTo12Hour(timings.Maghrib)} />
                 <Prayer name="العشاء" time={formatTo12Hour(timings.Isha)} />
               </>
+            )}
+            {errorMsg && (
+              <div className="loader" style={{ marginTop: "6px" }}>
+                {errorMsg} <br />
+                <button
+                  className="menu-btn"
+                  onClick={() => fetchData(city)}
+                  style={{ marginTop: "8px" }}
+                >
+                  إعادة المحاولة
+                </button>
+              </div>
             )}
           </div>
         </div>
